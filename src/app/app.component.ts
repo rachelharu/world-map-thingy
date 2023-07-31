@@ -1,5 +1,6 @@
-import { Component, Injectable } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { WorldMapService } from './services/world-map.service';
+import { SvgService } from './services/svg.service';
 
 @Component({
   selector: 'app-root',
@@ -8,15 +9,30 @@ import { WorldMapService } from './services/world-map.service';
 })
 export class AppComponent {
   title = 'd280_app';
+  searchQuery: string = '';
 
-  // pages = [];
+  constructor (private svgService: SvgService, private worldMapService: WorldMapService) {}
 
-  constructor (private service: WorldMapService) {}
+  onSearch(searchTerm: string) {
+    const searchTermLowerCase = searchTerm.trim().toLowerCase();
+    const matchingPath = this.svgService.svgPaths.find(path => path.getAttribute('name')?.toLowerCase() === searchTermLowerCase);
 
-  onSearch(id: string) {
-    this.service.search(id).subscribe((res: any) => {
-      // this.pages = res.query.search;
-      console.log(res.data);
-    });
+    if(!matchingPath) {
+      console.log("Country does not exist");
+      return;
+    }
+    
+    const countryId = matchingPath.id;
+    this.searchCountryData(countryId);
+  }
+
+  searchCountryData(countryId: string) {
+    this.worldMapService.search(countryId).subscribe(data => {
+      console.log('Country Data:', data);
+    },
+    error => {
+      console.error('error', error);
+  }
+  );
   }
 }

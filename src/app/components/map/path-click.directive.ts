@@ -5,7 +5,7 @@ import {
   HostBinding,
 } from '@angular/core';
 
-import { WorldMapService } from '../../services/world-map.service';
+
 
 
 @Directive({
@@ -21,6 +21,7 @@ export class PathClickDirective {
     this.toggleClass('red');
     const id = this.el.nativeElement.getAttribute('id');
     this.logName(id);
+    
   }
  //for CSS color change
   private toggleClass(className: string) {

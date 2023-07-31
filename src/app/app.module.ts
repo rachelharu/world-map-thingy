@@ -2,9 +2,10 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 
 import { PathClickDirective } from './components/map/path-click.directive';
+import { WorldMapService } from './services/world-map.service';
 
 import { AppComponent } from './app.component';
 import { MapComponent } from './components/map/map.component';
@@ -23,9 +24,10 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    HttpClientJsonpModule
   ],
-  providers: [],
+  providers: [WorldMapService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
