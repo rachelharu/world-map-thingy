@@ -9,15 +9,14 @@ import { WorldMapService } from './services/world-map.service';
 export class AppComponent {
   title = 'd280_app';
 
-  pages = [];
+  // pages = [];
 
   constructor (private service: WorldMapService) {}
 
-  onTerm(term: string) {
-    this.service.search(term).subscribe((res: any) => {
-      this.pages = res.query.search;
-      // console.log(res);
+  onSearch(id: string) {
+    this.service.search(id).subscribe((res: any) => {
+      // this.pages = res.query.search;
+      console.log(res.data);
     });
   }
-
 }

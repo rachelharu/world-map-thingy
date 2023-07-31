@@ -5,6 +5,7 @@ import {
   HostBinding,
 } from '@angular/core';
 
+import { WorldMapService } from '../../services/world-map.service';
 
 
 @Directive({
@@ -18,10 +19,10 @@ export class PathClickDirective {
   onClick() {
     const clickedElement = this.el.nativeElement;
     this.toggleClass('red');
-    const name = this.el.nativeElement.getAttribute('name');
-    this.logName(name);
+    const id = this.el.nativeElement.getAttribute('id');
+    this.logName(id);
   }
-
+ //for CSS color change
   private toggleClass(className: string) {
     const allPathElements = document.querySelectorAll('path');
 
@@ -39,7 +40,7 @@ export class PathClickDirective {
     }
   }
 
-  logName(name: string) {
-    console.log(`Clicked SVG name attribute: ${name}`);
+  logName(id: string) {
+    console.log(`Clicked SVG name attribute: ${id}`);
   }
 }
