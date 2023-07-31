@@ -1,6 +1,8 @@
 <div class="container"> 
+    <app-search-bar (submitted)="onTerm($event)"></app-search-bar>
     <div class=" wrapper">
         <app-map class="column a"></app-map>
         <app-info class="column"></app-info>
     </div>
+
 </div>
