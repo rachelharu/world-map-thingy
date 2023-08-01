@@ -5,4 +5,5 @@ import { Injectable } from '@angular/core';
 })
 export class SvgService {
   svgPaths: SVGPathElement[] = [];
+  countryNames: string[] = [];
 }

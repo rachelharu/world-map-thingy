@@ -15,14 +15,16 @@ export class AppComponent {
 
   onSearch(searchTerm: string) {
     const searchTermLowerCase = searchTerm.trim().toLowerCase();
-    const matchingPath = this.svgService.svgPaths.find(path => path.getAttribute('name')?.toLowerCase() === searchTermLowerCase);
+    const matchingIndex = this.svgService.countryNames.findIndex(name => name.toLowerCase() === searchTermLowerCase);
 
-    if(!matchingPath) {
+    if(matchingIndex === -1) {
       console.log("Country does not exist");
       return;
     }
     
+    const matchingPath = this.svgService.svgPaths[matchingIndex];
     const countryId = matchingPath.id;
+    console.log("Matching ID:", countryId);
     this.searchCountryData(countryId);
   }
 
