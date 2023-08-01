@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import  { map } from 'rxjs/operators';
@@ -11,6 +11,7 @@ export class SvgService {
   countryNames: string[] = [];
   private apiUrl = 'http://api.worldbank.org/v2/country';
 
+  countryDataEmitter: EventEmitter<any> = new EventEmitter<any>();
   constructor(private http: HttpClient) {}
 
   public search(id: string): Observable<any> {

@@ -5,6 +5,7 @@ import { SvgService } from '../../services/svg.service';
   selector: 'svg',
 })
 export class SvgPathClickDirective {
+  private countryData: any;
   constructor(private el: ElementRef, private svgService: SvgService) {}
 
   @HostListener('click', ['$event'])
@@ -16,6 +17,8 @@ export class SvgPathClickDirective {
       this.svgService.searchCountryData(id).subscribe(
       (data) => {
         console.log('Country Data:', data);
+        this.countryData = data;
+        this.svgService.countryDataEmitter.emit(this.countryData);
       },
       (error) => {
         console.error('Error:', error);

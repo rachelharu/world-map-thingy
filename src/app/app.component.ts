@@ -14,7 +14,11 @@ export class AppComponent implements OnInit {
 
   constructor (private svgService: SvgService, private worldMapService: WorldMapService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.svgService.countryDataEmitter.subscribe((countryData: any) => {
+      this.countryData = countryData;
+    });
+  }
 
   onSearch(searchTerm: string) {
     const searchTermLowerCase = searchTerm.trim().toLowerCase();
