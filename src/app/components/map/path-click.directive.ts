@@ -3,8 +3,10 @@ import {
   ElementRef,
   HostListener,
   HostBinding,
+  EventEmitter,
+  Output
 } from '@angular/core';
-
+import { SvgService } from '../../services/svg.service';
 
 
 
@@ -13,7 +15,9 @@ import {
 })
 
 export class PathClickDirective {
-  constructor(private el: ElementRef) {}
+  @Output() clickedPath = new EventEmitter<string>();
+
+  constructor(private el: ElementRef, private svgService: SvgService) {}
 
   @HostListener('click')
   onClick() {
@@ -21,7 +25,7 @@ export class PathClickDirective {
     this.toggleClass('red');
     const id = this.el.nativeElement.getAttribute('id');
     this.logName(id);
-    
+  
   }
  //for CSS color change
   private toggleClass(className: string) {

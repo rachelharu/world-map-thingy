@@ -2,7 +2,7 @@
     <app-search-bar (submitted)="onSearch($event)"></app-search-bar>
     <div class=" wrapper">
         <app-map class="column a"></app-map>
-        <app-info class="column"></app-info>
+        <app-info [countryData]="countryData" class="column"></app-info>
     </div>
 
 </div>

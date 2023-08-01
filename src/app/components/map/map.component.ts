@@ -1,6 +1,7 @@
 import { Component, AfterViewInit } from '@angular/core';
 import { SvgService } from '../../services/svg.service';
 
+
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
@@ -17,6 +18,23 @@ export class MapComponent implements AfterViewInit {
     this.svgService.countryNames = countryNames;
     console.log('SVG Paths:', this.svgService.svgPaths);
   }
+
+  // onPathClicked(id: string) {
+  //   const countryIso2Code = id.toLowerCase();
+  //   console.log("Clicked SVG ID attribute:", countryIso2Code);
+  //   this.searchCountryData(countryIso2Code);
+  // }
+
+  // searchCountryData(countryIso2Code: string) {
+  //   this.svgService.searchCountryData(countryIso2Code).subscribe(
+  //     (data) => {
+  //       console.log('Country Data:', data);
+  //     },
+  //     (error) => {
+  //       console.error('Error:', error);
+  //     }
+  //   );
+  // }
 
 }
  

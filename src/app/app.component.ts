@@ -7,11 +7,14 @@ import { SvgService } from './services/svg.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'd280_app';
   searchQuery: string = '';
+  countryData: any;
 
   constructor (private svgService: SvgService, private worldMapService: WorldMapService) {}
+
+  ngOnInit() {}
 
   onSearch(searchTerm: string) {
     const searchTermLowerCase = searchTerm.trim().toLowerCase();
@@ -31,6 +34,8 @@ export class AppComponent {
   searchCountryData(countryId: string) {
     this.worldMapService.search(countryId).subscribe(data => {
       console.log('Country Data:', data);
+      this.countryData = data[1][0]; 
+      console.log('Country Data pt2:', this.countryData);
     },
     error => {
       console.error('error', error);
