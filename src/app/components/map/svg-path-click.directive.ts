@@ -13,6 +13,7 @@ export class SvgPathClickDirective {
 
   @HostListener('click', ['$event'])
   onClick(event: MouseEvent) {
+    debugger;
     const target = event.target as SVGElement;
     if (target.tagName === 'path') {
       const id = target.getAttribute('id');
@@ -20,6 +21,7 @@ export class SvgPathClickDirective {
       this.svgService.searchCountryData(id).subscribe(
       (data) => {
         console.log('Country Data:', data);
+        debugger;
         this.countryData = data;
         this.svgService.countryDataEmitter.emit(this.countryData);
         this.countryDataClicked.emit(this.countryData);
