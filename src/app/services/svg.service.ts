@@ -25,4 +25,6 @@ export class SvgService {
     const url = `${this.apiUrl}/${countryId}?format=json`; // Use countryId in the URL
     return this.http.get<any>(url);
   }
+
+  
 }

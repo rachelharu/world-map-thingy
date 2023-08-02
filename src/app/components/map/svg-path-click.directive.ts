@@ -23,8 +23,8 @@ export class SvgPathClickDirective {
         console.log('Country Data:', data);
         debugger;
         this.countryData = data;
-        this.svgService.countryDataEmitter.emit(this.countryData);
-        this.countryDataClicked.emit(this.countryData);
+        this.svgService.clickedCountryDataEmitter.emit(data);
+        this.countryDataClicked.emit(data);
       },
       (error) => {
         console.error('Error:', error);

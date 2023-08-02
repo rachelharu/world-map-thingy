@@ -18,9 +18,8 @@ export class AppComponent implements OnInit  {
   constructor(private svgService: SvgService, private worldMapService: WorldMapService) {}
 
   ngOnInit() {
-    this.svgService.countryDataEmitter.subscribe((data: any) => {
-      this.data = data;
-      console.log("received click data: ", data)
+    this.clickedCountryDataSubscription = this.svgService.clickedCountryDataEmitter.subscribe((data: any) => {
+      this.onCountryDataClicked(data);
     });
   }
 
@@ -50,7 +49,7 @@ export class AppComponent implements OnInit  {
   }
 
   onCountryDataClicked(data: any) {
-    this.data = data;
+    this.data = data[1][0];
     console.log("here", data);
   }
 }
