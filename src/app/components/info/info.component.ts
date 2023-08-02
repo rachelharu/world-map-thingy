@@ -12,4 +12,5 @@ export class InfoComponent implements OnChanges {
   ngOnChanges(changes: SimpleChanges) {
     this.isDataAvailable = !!this.data;
   }
+  
 }
