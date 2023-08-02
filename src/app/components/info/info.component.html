@@ -2,12 +2,21 @@
   <div *ngIf="isDataAvailable">
       <h3 class="country-name">{{ data.name }}</h3>
       <ul> 
-          <!-- Display searched country data -->
-          <li>Capital: {{ data.capitalCity }}</li>
-          <li>Region: {{ data.region?.value }}</li>
-          <li>Income Level: {{ data.incomeLevel?.value }}</li>
-          <li>Longitude: {{ data.longitude }}</li>
-          <li>Latitude: {{ data.latitude }}</li>
-        </ul>
+        <!-- Display searched country data -->
+        <li>Capital: {{ data.capitalCity }}</li>
+        <li>Region: {{ data.region?.value }}</li>
+        <li>Income Level: {{ data.incomeLevel?.value }}</li>
+        <li>Longitude: {{ data.longitude }}</li>
+        <li>Latitude: {{ data.latitude }}</li>
+      </ul>
+  </div>
+  <div *ngIf="isClickAvailable">
+    <h3 class="country-name">{{ data.name }}</h3>
+    <ul> 
+      <!-- Display click country data -->
+      <li>Capital: {{ data.capitalCity }}</li>
+      <li>Longitude: {{ data.longitude }}</li>
+      <li>Latitude: {{ data.latitude }}</li>
+    </ul>
   </div>
   </div>
