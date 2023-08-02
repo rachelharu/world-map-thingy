@@ -1,11 +1,14 @@
-import { Directive, ElementRef, HostListener } from '@angular/core';
+import { Directive, ElementRef, HostListener, Output, EventEmitter } from '@angular/core';
 import { SvgService } from '../../services/svg.service';
 
 @Directive({
   selector: 'svg',
 })
 export class SvgPathClickDirective {
+  @Output() countryDataClicked = new EventEmitter<any>();
+
   private countryData: any;
+  
   constructor(private el: ElementRef, private svgService: SvgService) {}
 
   @HostListener('click', ['$event'])
@@ -19,6 +22,7 @@ export class SvgPathClickDirective {
         console.log('Country Data:', data);
         this.countryData = data;
         this.svgService.countryDataEmitter.emit(this.countryData);
+        this.countryDataClicked.emit(this.countryData);
       },
       (error) => {
         console.error('Error:', error);

@@ -12,6 +12,8 @@ export class SvgService {
   private apiUrl = 'http://api.worldbank.org/v2/country';
 
   countryDataEmitter: EventEmitter<any> = new EventEmitter<any>();
+  clickedCountryDataEmitter: EventEmitter<any> = new EventEmitter<any>();
+
   constructor(private http: HttpClient) {}
 
   public search(id: string): Observable<any> {
@@ -24,4 +26,3 @@ export class SvgService {
     return this.http.get<any>(url);
   }
 }
-

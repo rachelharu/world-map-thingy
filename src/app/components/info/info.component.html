@@ -1,12 +1,14 @@
 <div class="container"><h2 class="country-name">Country Data:</h2>
-<div *ngIf="isDataAvailable">
-    <h3 class="country-name">{{ countryData.name }}</h3>
-    <ul>
-        <!-- <li>Capital: {{ countryData.capitalCity }}</li>
-        <li>Region: {{ countryData.region.value }}</li>
-        <li>Income Level: {{ countryData.incomeLevel.value }}</li> -->
-        <li>Longitude: {{ countryData.longitude }}</li>
-        <li>Latitude: {{ countryData.latitude }}</li>
-    </ul>
-</div>
-</div>
+  <div *ngIf="isDataAvailable">
+      <h3 class="country-name">{{ data.name }}</h3>
+  
+      <ul> 
+          <!-- Display searched country data -->
+          <li>Capital: {{ data.capitalCity }}</li>
+          <li>Region: {{ data.region?.value }}</li>
+          <li>Income Level: {{ data.incomeLevel?.value }}</li>
+          <li>Longitude: {{ data.longitude }}</li>
+          <li>Latitude: {{ data.latitude }}</li>
+        </ul>
+  </div>
+  </div>

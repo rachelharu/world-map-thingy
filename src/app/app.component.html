@@ -1,8 +1,8 @@
 <div class="container"> 
     <app-search-bar (submitted)="onSearch($event)"></app-search-bar>
     <div class=" wrapper">
-        <app-map class="column a"></app-map>
-        <app-info [countryData]="countryData" class="column"></app-info>
+        <app-map class="column a" (countryDataClicked)="onCountryDataClicked($event)"></app-map>
+        <app-info [data]="data"  class="column"></app-info>
     </div>
 
 </div>

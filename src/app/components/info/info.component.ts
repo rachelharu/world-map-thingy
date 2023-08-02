@@ -6,15 +6,10 @@ import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
   styleUrls: ['./info.component.scss']
 })
 export class InfoComponent implements OnChanges {
-  @Input() countryData: any;
+  @Input() data: any;
   isDataAvailable: boolean = false;
 
-
   ngOnChanges(changes: SimpleChanges) {
-    // if (changes['countryData']) {
-    //   this.isDataAvailable = !!this.countryData;
-    //   this.changeDetectorRef.detectChanges();
-    // }
-    this.isDataAvailable = !!this.countryData;
+    this.isDataAvailable = !!this.data;
   }
 }

@@ -19,5 +19,6 @@ export class MapComponent implements AfterViewInit {
     console.log('SVG Paths:', this.svgService.svgPaths);
   }
 
+
 }
  
